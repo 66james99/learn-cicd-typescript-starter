@@ -1,0 +1,11 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        docker run --privileged --rm tonistiigi/binfmt --install all
+        docker buildx create --use
+        docker buildx build --platform=linux/arm64 \
+          -t europe-west2-docker.pkg.dev/notely-456378/notely-ar-repo/notely:latest \
+          --push .

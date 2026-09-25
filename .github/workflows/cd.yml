@@ -35,5 +35,5 @@ jobs:
         run: gcloud info
 
       - name: Build and push Docker image
-        run: gcloud builds submit --config=cloudbuild.yaml --tag europe-west2-docker.pkg.dev/notely-456378/notely-ar-repo/notely:latest .
+        run: gcloud builds submit --config=cloudbuild.yaml .
 
